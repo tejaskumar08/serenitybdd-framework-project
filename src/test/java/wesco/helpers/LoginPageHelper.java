@@ -44,9 +44,8 @@ public class LoginPageHelper extends PageObject {
     }
 
     public void logoutFromSauceDemoApplication(){
-        //loginPage.leftHamburgerMenu.click();
         WebPageUtils.clickOnElement(loginPage.leftHamburgerMenu);
-        loginPage.sideBarLogoutBtn.waitUntilClickable();
+        WebPageUtils.waitUntilElementVisibleAndClickable(loginPage.sideBarLogoutBtn);
         loginPage.sideBarLogoutBtn.click();
         Assert.assertTrue("User could not logout from application",loginPage.userName.isDisplayed());
     }
