@@ -48,5 +48,12 @@ public class LoginPage extends PageObject {
     @FindBy(id ="logout_sidebar_link")
     public WebElementFacade sideBarLogoutBtn;
 
+    @FindBy(xpath = ".//button[@name='add-to-cart-sauce-labs-backpack']")
+    public WebElementFacade addToCartButton;
 
+    @FindBy(xpath = ".//a[@data-test='shopping-cart-link']")
+    public WebElementFacade shoppingCartButton;
+
+    @FindBy(id = "continue-shopping")
+    public WebElementFacade continueShoppingButton;
 }

@@ -1,5 +1,6 @@
 package wesco.helpers;
 
+import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.pages.PageObject;
 import org.junit.Assert;
 import org.slf4j.Logger;
@@ -43,9 +44,16 @@ public class LoginPageHelper extends PageObject {
         }
     }
 
+    public void addItemsToCart(){
+        WebPageUtils.waitForElementAndClick(loginPage.addToCartButton);
+        WebPageUtils.waitForElementAndClick(loginPage.shoppingCartButton);
+        Assert.assertTrue("Could not navigate to Cart page", loginPage.continueShoppingButton.isDisplayed());
+    }
+
     public void logoutFromSauceDemoApplication(){
+        WebPageUtils.waitUntilElementVisibleAndClickable(loginPage.leftHamburgerMenu);
         WebPageUtils.clickOnElement(loginPage.leftHamburgerMenu);
-        WebPageUtils.waitUntilElementVisibleAndClickable(loginPage.sideBarLogoutBtn);
+        loginPage.sideBarLogoutBtn.waitUntilVisible();
         loginPage.sideBarLogoutBtn.click();
         Assert.assertTrue("User could not logout from application",loginPage.userName.isDisplayed());
     }

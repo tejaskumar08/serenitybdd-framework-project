@@ -23,6 +23,7 @@ public class LoginStepDefinition {
 
     @Then("the user will be products page")
     public void verifyUserLandedBackInLoginPage(){
+        loginPageHelper.addItemsToCart();
         loginPageHelper.logoutFromSauceDemoApplication();
     }
 
