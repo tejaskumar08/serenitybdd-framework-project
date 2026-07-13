@@ -20,13 +20,13 @@ jobs:
           java-version: 17
 
       - name: Run Tests
-        uses: mvn clean verify
+        run: mvn clean verify
 
       - name: Generate Serenity Reports
         run: mvn serenity:aggregate
 
       - name: Upload Serenity Report
-        uses: actions/upload-artifactory@v4
+        uses: actions/upload-artifact@v4
         with:
           name: Serenity-Report
           path: target/site/serenity
